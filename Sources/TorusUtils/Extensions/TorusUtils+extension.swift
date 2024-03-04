@@ -556,9 +556,9 @@ extension TorusUtils {
                                 throw error
                             } else {
                                 guard
-                                    let decodedResult = result as? [String: [[String: String]]],
-                                    let k = decodedResult["keys"],
-                                    let keys = k.first,
+                                    let decodedResult = result as? [String: Any],
+                                    let keysArray = decodedResult["keys"] as? [[String: String]],
+                                    let keys = keysArray.first,
                                     let pubKeyX = keys["pub_key_X"],
                                     let pubKeyY = keys["pub_key_Y"],
                                     let keyIndex = keys["key_index"],
